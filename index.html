@@ -1,216 +1,313 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang='en' class='scroll-smooth dark'>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aquaanovaa07 // Dev Portfolio</title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Aquaanovaa07 | Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = { darkMode: 'class' }
-</script>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>tailwind.config = { darkMode: 'class' }</script>
+<link href='https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body { font-family: 'Plus Jakarta Sans', sans-serif; }
-  .mono-font { font-family: 'JetBrains Mono', monospace; }
-  .cursor-blink::after { content: '_'; animation: blink 0.8s steps(1) infinite; }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-  /* Custom subtle grid styling to look hand-coded */
-  .bg-grid {
-    background-color: #090a0f;
-    background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-  .light .bg-grid {
-    background-color: #f8fafc;
-    background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-  }
+  body { font-family: 'Inter', sans-serif; transition: background-color 0.2s; }
+  .code-font { font-family: 'Fira Code', monospace; }
+  .cursor-blink::after { content: '|'; animation: blinkAnim 1s infinite; }
+  @keyframes blinkAnim { 0%,100%{opacity:1} 50%{opacity:0} }
+  .bg-geometric-dark { background-color: #0b0f19; background-image: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, transparent 40%), linear-gradient(315deg, rgba(212, 175, 55, 0.1) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), #070a12); }
+  .bg-geometric-light { background-color: #f1f5f9; background-image: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, transparent 40%), radial-gradient(circle at 50% 50%, #ffffff, #cbd5e1); }
 </style>
 </head>
-<body class="bg-grid text-slate-100 light:text-slate-900 antialiased min-h-screen selection:bg-amber-500 selection:text-black">
+<body class="bg-geometric-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-amber-600 selection:text-white min-h-screen">
 
-<!-- Top Nav Bar -->
-<header class="sticky top-0 z-50 backdrop-blur-md bg-[#090a0f]/80 light:bg-white/80 border-b border-amber-500/10">
-  <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
-    <a href="#" class="mono-font font-bold text-sm text-amber-400 light:text-amber-600">~/aquaanovaa07</a>
-    <nav class="hidden sm:flex items-center gap-6 text-xs mono-font text-slate-400 light:text-slate-600">
-      <a href="#work" class="hover:text-amber-400 transition-colors">01.work</a>
-      <a href="#stack" class="hover:text-amber-400 transition-colors">02.stack</a>
-      <a href="#about" class="hover:text-amber-400 transition-colors">03.about</a>
-      <a href="#contact" class="hover:text-amber-400 transition-colors">04.contact</a>
-    </nav>
-    <div class="flex items-center gap-3">
-      <button id="themeBtn" class="p-2 text-amber-400 hover:opacity-80 transition-opacity" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon light:hidden"></i>
-        <i class="fa-solid fa-sun hidden light:inline"></i>
-      </button>
+<div style="position: sticky; top: 0; z-index: 40;" class="bg-white/90 dark:bg-slate-950/90 border-b border-amber-500/20 backdrop-blur-sm transition-colors">
+<div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="#" class="code-font font-bold text-xl text-amber-600 dark:text-amber-400 hover:opacity-85">Aquaanovaa07</a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#about" class="hover:text-amber-600 dark:hover:text-amber-400">About</a>
+        <a href="#skills" class="hover:text-amber-600 dark:hover:text-amber-400">Skills</a>
+        <a href='#projects' class="hover:text-amber-600 dark:hover:text-amber-400">Projects</a>
+        <a href="#contact" class="hover:text-amber-600 dark:hover:text-amber-400">Contact</a>
+        <button id="themeToggle" style="padding: 0.5rem;" class="rounded-lg bg-slate-200 dark:bg-slate-800 text-amber-600 dark:text-amber-400">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <i class="fa-solid fa-sun hidden dark:inline"></i>
+        </button>
+        <a href="https://discord.com/users/1535690511099240509" target="_blank" class="px-3.5 py-1.5 rounded-md bg-amber-600 hover:bg-amber-500 text-white flex items-center gap-2"><i class="fa-brands fa-discord"></i> Discord</a>
     </div>
-  </div>
-</header>
-
-<main class="max-w-4xl mx-auto px-4 pt-16 pb-24">
-
-  <!-- Hero Section -->
-  <section class="py-12">
-    <div class="mono-font text-xs text-amber-400 light:text-amber-600 mb-3 tracking-wide">system_status: online</div>
-    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white light:text-slate-900 mb-4">
-      Hi, I'm Aquaanovaa07.
-    </h1>
-    <div class="mono-font text-base sm:text-lg text-slate-300 light:text-slate-700 mb-6">
-      &gt; building <span id="typeTarget" class="text-amber-400 light:text-amber-600 font-semibold cursor-blink"></span>
+    <div class="flex items-center gap-3 md:hidden">
+        <button id="themeToggleMobile" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-amber-600 dark:text-amber-400"><i class="fa-solid fa-moon dark:hidden"></i><i class="fa-solid fa-sun hidden dark:inline"></i></button>
+        <button id="hamburger-menu" style="color: inherit;"><i class="fa-solid fa-bars text-lg"></i></button>
     </div>
-    <p class="text-slate-400 light:text-slate-600 text-sm sm:text-base max-w-xl leading-relaxed mb-8">
-      Self-taught developer and system builder. I code backend logic for Discord apps, design custom PvP resource packs for Minecraft, and ship clean frontend code.
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="#work" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-xs mono-font rounded transition-colors">View Projects</a>
-      <a href="https://discord.com/users/1535690511099240509" target="_blank" class="px-4 py-2 border border-slate-700 light:border-slate-300 hover:border-amber-500 text-slate-300 light:text-slate-700 text-xs mono-font rounded transition-colors flex items-center gap-2">
-        <i class="fa-brands fa-discord text-amber-400"></i> Discord Profile
-      </a>
-    </div>
-  </section>
+</div>
+<div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3 shadow-lg">
+    <a href="#about" class="block">About</a>
+    <a href="#skills" class="block">Skills</a>
+    <a href="#projects" class="block">Projects</a>
+    <a href="#contact" class="block">Contact</a>
+    <a href="https://discord.com/users/1535690511099240509" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-amber-600 text-white"><i class="fa-brands fa-discord"></i> Discord Profile</a>
+</div>
+</div>
 
-  <!-- Work / Projects Section -->
-  <section id="work" class="py-16 border-t border-slate-800 light:border-slate-200">
-    <h2 class="mono-font text-sm font-bold text-amber-400 light:text-amber-600 mb-8">// selected_projects</h2>
+<div class="py-20 md:py-28 max-w-5xl mx-auto px-4">
+<div class="max-w-3xl">
+    <div class="px-3 py-1 text-xs font-mono text-amber-700 dark:text-amber-400 bg-amber-200/50 dark:bg-amber-950/40 border border-amber-500/30 rounded-md mb-6" style="display:inline-block;">Status: Online & Ready to Build</div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">Hi, I am <span class="text-amber-600 dark:text-amber-400">Aquaanovaa07</span></h1>
+    <div class="mt-3 text-xl code-font text-slate-700 dark:text-slate-300">I am a <span id="typeTarget" class="text-amber-600 dark:text-amber-400 cursor-blink font-semibold"></span></div>
+    <p class="mt-6 leading-relaxed text-base sm:text-lg text-slate-700 dark:text-slate-300">Passionate software engineer specializing in building high-performance Discord bots, Minecraft custom texture packs with high quality, and website developing.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#projects" class="px-5 py-2.5 rounded-md bg-amber-600 hover:bg-amber-500 text-white text-sm font-medium">View Projects</a>
+        <a href="https://discord.com/users/1535690511099240509" target="_blank" class="px-5 py-2.5 rounded-md bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-200 border border-amber-500/30 text-sm flex items-center gap-2"><i class="fa-brands fa-discord text-amber-600 dark:text-amber-400"></i> Discord Profile</a>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-2 text-xs code-font">
+        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800/80 border border-amber-500/20 text-slate-800 dark:text-slate-300">Python Expert</span>
+        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800/80 border border-amber-500/20 text-slate-800 dark:text-slate-300">Discord Expert</span>
+        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800/80 border border-amber-500/20 text-slate-800 dark:text-slate-300">Discord Server Builder</span>
+    </div>
+</div>
+</div>
+
+<div id="about" class="py-16 bg-white/60 dark:bg-slate-950/60 border-y border-amber-500/20 transition-colors">
+<div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3"><span class="px-2 py-0.5 text-xs bg-amber-500 text-slate-950 rounded font-mono">01</span> ABOUT Aquaanovaa07</h2>
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+        <div class="md:col-span-2 space-y-4 leading-relaxed text-slate-700 dark:text-slate-300">
+            <p>Hey! I'm <strong class="text-amber-600 dark:text-amber-400">Aquaanovaa07</strong>. I focus on developing full-featured Discord applications, Minecraft server plugins, custom PvP texture packs, and websites. Also into Minecraft server management and community moderation. I have a strong passion for creating efficient, user-friendly software solutions that enhance online experiences.</p>
+            <p>I worked as a <span class="text-amber-600 dark:text-amber-400 font-medium">Helper at Himlands</span>, where I gained strong hands-on experience in server management, player moderation, and workflow automation.</p>
+            <p>Outside of coding, I'm an active <span class="text-amber-600 dark:text-amber-400 font-medium">Minecraft PvP</span> player. That competitive experience directly influences how I design responsive custom texture packs and lightweight plugins optimized for server performance.</p>
+        </div>
+        <div style="box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);" class="bg-white dark:bg-slate-900/90 border border-amber-500/30 rounded-lg p-5 grid grid-cols-2 gap-4 text-center">
+            <div>
+                <div class="text-2xl font-bold text-amber-600 dark:text-amber-400 code-font">8+</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Projects Delivered</div>
+            </div>
+            <div>
+                <div class="text-2xl font-bold text-amber-600 dark:text-amber-400 code-font">5k+</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Bot Active Users</div>
+            </div>
+            <div>
+                <div class="text-2xl font-bold text-amber-600 dark:text-amber-400 code-font">99.9%</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Avg Uptime</div>
+            </div>
+            <div>
+                <div class="text-2xl font-bold text-amber-600 dark:text-amber-400 code-font">2 yrs+</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Coding Experience</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="skills" class="py-16 max-w-5xl mx-auto px-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3"><span class="px-2 py-0.5 text-xs bg-amber-500 text-slate-950 rounded font-mono">02</span> SKILLS & TECH STACK</h2>
+<div class="flex gap-2 mb-8 border-b border-slate-300 dark:border-slate-800 pb-3">
+    <button onclick="filterTab('all')" id="tabAll" class="tabBtn text-sm px-3 py-1.5 rounded bg-amber-600 text-white font-medium">All Skills</button>
+    <button onclick="filterTab('backend')" id="tabBackend" class="tabBtn text-sm px-3 py-1.5 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Backend & APIs</button>
+    <button onclick="filterTab('frontend')" id="tabFrontend" class="tabBtn text-sm px-3 py-1.5 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Frontend & Design</button>
+</div>
+<div id="skillsGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+</div>
+
+<div id="projects" class="py-16 bg-white/60 dark:bg-slate-950/60 border-t border-amber-500/20 transition-colors">
+<div class="max-w-5xl mx-auto px-4">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3"><span class="px-2 py-0.5 text-xs bg-amber-500 text-slate-950 rounded font-mono">03</span> FEATURED PROJECTS</h2>
+<div class="grid md:grid-cols-2 gap-6">
+
+    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 rounded-xl p-6 flex flex-col justify-between shadow-xl transition-all">
+        <div>
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                    <i class="fa-brands fa-discord text-xl"></i>
+                </div>
+                <span class="text-xs code-font text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/80 border border-amber-500/30 px-2.5 py-1 rounded">Discord Application</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Multi-Feature Discord Bot</h3>
+            <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4">Comprehensive server bot built for high active workloads. Features advanced moderation commands, leveling mechanics, and security controls.</p>
+            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 mb-6 list-disc list-inside">
+                <li><strong class="text-slate-800 dark:text-slate-200">Moderation:</strong> Ban, Kick, Mute, VC Mute with auto-logs</li>
+                <li><strong class="text-slate-800 dark:text-slate-200">Leveling:</strong> Dynamic text and voice activity tracking</li>
+                <li><strong class="text-slate-800 dark:text-slate-200">Ticketing:</strong> Support dropdowns & image URL attachments</li>
+                <li><strong class="text-slate-800 dark:text-slate-200">Security:</strong> Antinuke honeypot & channel restoration</li>
+                <li><strong class="text-slate-800 dark:text-slate-200">Audio:</strong> Lavalink node music streaming player</li>
+            </ul>
+        </div>
+        <div>
+            <div class="flex flex-wrap gap-2 code-font text-xs">
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">Python</span>
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">discord.py</span>
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">Asyncio</span>
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">SQLite</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 rounded-xl p-6 flex flex-col justify-between shadow-xl transition-all">
+        <div>
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-lg bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                </div>
+                <span class="text-xs code-font text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/80 border border-amber-500/30 px-2.5 py-1 rounded">Web Project</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Aquaanovaa07 Portfolio</h3>
+            <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4">Personal showcase website built to present projects, skills, and experience across Discord bot creation, Minecraft texture pack designing, and web development.</p>
+            <div class="space-y-2 text-xs text-slate-600 dark:text-slate-400 mb-6 border-t border-slate-200 dark:border-slate-800 pt-3">
+                <p><strong class="text-slate-800 dark:text-slate-200">Tech Proficiency:</strong> Advanced in Python, HTML, CSS; solid with JavaScript and C++.</p>
+                <p><strong class="text-slate-800 dark:text-slate-200">Design Skill:</strong> Advanced in crafting optimized custom texture packs for Minecraft PvP.</p>
+            </div>
+        </div>
+        <div>
+            <div class="flex flex-wrap gap-2 mb-4 code-font text-xs">
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">HTML5</span>
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800/90 rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">JavaScript</span>
+            </div>
+            <span class="text-xs text-slate-500 font-mono">Current Live Site</span>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<div id="contact" class="py-16 max-w-5xl mx-auto px-4">
+<div class="max-w-xl mx-auto bg-white dark:bg-slate-900/90 border border-amber-500/30 rounded-xl p-6 md:p-8 shadow-2xl transition-colors">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white text-center mb-2">Get In Touch</h2>
+    <p class="text-center text-sm text-slate-600 dark:text-slate-400 mb-6">Have a project idea or need a custom bot/texture pack? Send a message.</p>
     
-    <div class="grid gap-6">
-      <!-- Project 1 -->
-      <div class="p-6 rounded-lg bg-slate-900/40 light:bg-slate-100 border border-slate-800/80 light:border-slate-200 hover:border-amber-500/40 transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <h3 class="font-bold text-white light:text-slate-900 text-base">Creator's Hub Bot</h3>
-          <span class="mono-font text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Python / discord.py</span>
-        </div>
-        <p class="text-sm text-slate-400 light:text-slate-600 mb-4 leading-relaxed">
-          Modular multi-purpose Discord application engineered for active communities. Features custom antinuke security filters, automated reaction workflows, and a Lavalink-backed audio streaming system.
-        </p>
-        <div class="flex flex-wrap gap-2 mono-font text-[11px] text-slate-500 light:text-slate-500">
-          <span>#asyncio</span>
-          <span>#sqlite</span>
-          <span>#lavalink</span>
-        </div>
+    <div class="mb-6 p-4 rounded bg-slate-100 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700/60 text-center">
+        <span class="text-xs text-slate-600 dark:text-slate-400 uppercase tracking-wider block font-medium">Work Email</span>
+        <a href="mailto:debtgenerational@gmail.com" class="text-amber-600 dark:text-amber-400 hover:underline code-font text-sm">debtgenerational@gmail.com</a>
+    </div>
+
+    <form action="https://formspree.io/f/xpppywvp" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+        <input type="text" name="name" required class="w-full px-3 py-2 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-amber-500">
       </div>
-
-      <!-- Project 2 -->
-      <div class="p-6 rounded-lg bg-slate-900/40 light:bg-slate-100 border border-slate-800/80 light:border-slate-200 hover:border-amber-500/40 transition-all">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <h3 class="font-bold text-white light:text-slate-900 text-base">PvP Resource Pack Customizer</h3>
-          <span class="mono-font text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Minecraft Design</span>
-        </div>
-        <p class="text-sm text-slate-400 light:text-slate-600 mb-4 leading-relaxed">
-          Custom texture configuration focused on competitive PvP play. Includes optimized dark reddish-black totem pop particle animations and custom crimson gradient netherite armor scaling.
-        </p>
-        <div class="flex flex-wrap gap-2 mono-font text-[11px] text-slate-500 light:text-slate-500">
-          <span>#json</span>
-          <span>#textures</span>
-          <span>#optimization</span>
-        </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
+        <input type="email" name="email" required class="w-full px-3 py-2 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-amber-500">
       </div>
-    </div>
-  </section>
+      <div>
+        <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
+        <textarea name="message" rows="4" required class="w-full px-3 py-2 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-amber-500"></textarea>
+      </div>
+      <button type="submit" class="w-full py-2.5 rounded bg-amber-600 hover:bg-amber-500 text-white font-medium text-sm transition-colors">Send Message</button>
+    </form>
+</div>
+</div>
 
-  <!-- Stack Section -->
-  <section id="stack" class="py-16 border-t border-slate-800 light:border-slate-200">
-    <h2 class="mono-font text-sm font-bold text-amber-400 light:text-amber-600 mb-8">// tech_stack</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mono-font text-xs">
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">Python 3.13</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">HTML5 / CSS3</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">Tailwind CSS</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">JavaScript</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">VS Code</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">Pterodactyl Panel</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">Git & GitHub</div>
-      <div class="p-3 bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 rounded text-slate-300 light:text-slate-700">Linux CLI</div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 border-t border-slate-800 light:border-slate-200">
-    <h2 class="mono-font text-sm font-bold text-amber-400 light:text-amber-600 mb-6">// about_me</h2>
-    <div class="space-y-4 text-sm text-slate-400 light:text-slate-600 leading-relaxed">
-      <p>
-        I focus on writing functional script code without unnecessary software bloat. Whether configuring bot backends or tweaking game client assets, I prefer a hands-on, iterative approach to troubleshooting.
-      </p>
-      <p>
-        Previously served as a <strong class="text-slate-200 light:text-slate-800">Helper at Himlands</strong>, managing gameplay rules, community logs, and backend automation workflows.
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 border-t border-slate-800 light:border-slate-200">
-    <h2 class="mono-font text-sm font-bold text-amber-400 light:text-amber-600 mb-6">// drop_a_line</h2>
-    <div class="max-w-md bg-slate-900/40 light:bg-slate-100 border border-slate-800 light:border-slate-200 p-6 rounded-lg">
-      <form action="https://formspree.io/f/xpppywvp" method="POST" class="space-y-4">
-        <div>
-          <label class="block mono-font text-xs text-slate-400 mb-1">name</label>
-          <input type="text" name="name" required class="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 rounded px-3 py-2 text-sm text-white light:text-slate-900 focus:outline-none focus:border-amber-500">
-        </div>
-        <div>
-          <label class="block mono-font text-xs text-slate-400 mb-1">email</label>
-          <input type="email" name="email" required class="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 rounded px-3 py-2 text-sm text-white light:text-slate-900 focus:outline-none focus:border-amber-500">
-        </div>
-        <div>
-          <label class="block mono-font text-xs text-slate-400 mb-1">message</label>
-          <textarea name="message" rows="4" required class="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 rounded px-3 py-2 text-sm text-white light:text-slate-900 focus:outline-none focus:border-amber-500"></textarea>
-        </div>
-        <button type="submit" class="w-full py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold mono-font text-xs rounded transition-colors">Send Transmission</button>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-800 light:border-slate-200 text-center mono-font text-xs text-slate-500">
-  <p>© 2026 Aquaanovaa07. Handcrafted.</p>
+<footer style="padding: 1.5rem 0;" class="border-t border-slate-300 dark:border-slate-800 text-center text-xs text-slate-600 dark:text-slate-400 transition-colors">
+    <p>© 2026 Aquaanovaa07's Portfolio. All rights reserved. Do not copy or try to steal content.</p>
 </footer>
 
 <script>
-  // Simple custom typing effect loop
-  const phrases = [
-    "discord bots.",
-    "minecraft texture packs.",
-    "clean web interfaces.",
-    "automation scripts."
+  const getElem = function(id) {
+    return document.getElementById(id);
+  };
+
+  var textList = [
+    "Discord bot developer", 
+    "Minecraft plugin developer", 
+    "Minecraft Texture pack designer", 
+    "Website developer", 
+    "Portfolio designer"
   ];
   
-  let pIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  const target = document.getElementById("typeTarget");
+  let currentIdx = 0;
+  let currentLetter = 0;
+  let isDeletingText = false;
 
-  function typeWriter() {
-    let current = phrases[pIndex];
-    if (isDeleting) {
-      charIndex--;
+  function runTypewriter() {
+    let word = textList[currentIdx];
+    if (isDeletingText) {
+      currentLetter--;
     } else {
-      charIndex++;
+      currentLetter++;
     }
     
-    target.textContent = current.substring(0, charIndex);
+    getElem("typeTarget").textContent = word.substr(0, currentLetter);
     
-    let speed = isDeleting ? 40 : 80;
-    
-    if (!isDeleting && charIndex === current.length) {
-      speed = 1500;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      pIndex = (pIndex + 1) % phrases.length;
-      speed = 300;
+    let timer = isDeletingText ? 25 : 65;
+    if (!isDeletingText && currentLetter === word.length) {
+      timer = 2200; 
+      isDeletingText = true;
+    } else if (isDeletingText && currentLetter === 0) {
+      isDeletingText = false;
+      currentIdx = (currentIdx + 1) % textList.length;
+      timer = 200;
     }
-    
-    setTimeout(typeWriter, speed);
+    setTimeout(runTypewriter, timer);
   }
   
-  document.addEventListener("DOMContentLoaded", typeWriter);
+  window.onload = function() {
+    runTypewriter();
+    loadSkillsGrid('all');
+  };
 
-  // Theme toggle handler
-  document.getElementById("themeBtn").addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
+  getElem("hamburger-menu").onclick = function() {
+    let m = getElem("mobileMenu");
+    if (m.classList.contains("hidden")) {
+      m.classList.remove("hidden");
+    } else {
+      m.classList.add("hidden");
+    }
+  };
+
+  document.getElementById("themeToggle").addEventListener("click", function() {
+    let htmlTag = document.querySelector("html");
+    if (htmlTag.className.includes("dark")) {
+      htmlTag.classList.remove("dark");
+      document.body.className = document.body.className.replace("bg-geometric-dark", "bg-geometric-light");
+    } else {
+      htmlTag.classList.add("dark");
+      document.body.className = document.body.className.replace("bg-geometric-light", "bg-geometric-dark");
+    }
   });
+
+  document.getElementById("themeToggleMobile").onclick = () => {
+    let htmlTag = document.getElementsByTagName("html")[0];
+    htmlTag.classList.toggle("dark");
+    document.body.classList.toggle("bg-geometric-dark");
+    document.body.classList.toggle("bg-geometric-light");
+  };
+
+  const skillsDataArray = [
+    { name: "Python", level: "Advanced", cat: ["backend", "all"] },
+    { name: "discord.py", level: "Advanced", cat: ["backend", "all"] },
+    { name: "JavaScript", level: "Proficient", cat: ["backend", "frontend", "all"] },
+    { name: "CSS", level: "Advanced", cat: ["frontend", "all"] },
+    { name: "HTML", level: "Advanced", cat: ["backend", "frontend", "all"] },
+    { name: "Discord Bot Development", level: "Advanced", cat: ["backend", "all"] },
+    { name: "Texture Pack Designing", level: "Advanced", cat: ["frontend", "all"] }
+  ];
+
+  function loadSkillsGrid(filterCat) {
+    let gridBox = getElem("skillsGrid");
+    gridBox.innerHTML = "";
+    
+    for (let i = 0; i < skillsDataArray.length; i++) {
+      let item = skillsDataArray[i];
+      if (item.cat.includes(filterCat)) {
+        let cardDiv = document.createElement("div");
+        cardDiv.className = "bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded p-3 flex justify-between items-center shadow";
+        cardDiv.innerHTML = "<span class='text-sm font-medium text-slate-800 dark:text-slate-200'>" + item.name + "</span><span class='text-xs code-font text-amber-600 dark:text-amber-400'>" + item.level + "</span>";
+        gridBox.appendChild(cardDiv);
+      }
+    }
+  }
+
+  function filterTab(categoryName) {
+    let buttons = document.querySelectorAll(".tabBtn");
+    for(let b of buttons) {
+      b.className = "tabBtn text-sm px-3 py-1.5 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white";
+    }
+    
+    if (categoryName === 'all') getElem("tabAll").className = "tabBtn text-sm px-3 py-1.5 rounded bg-amber-600 text-white font-medium";
+    if (categoryName === 'backend') getElem("tabBackend").className = "tabBtn text-sm px-3 py-1.5 rounded bg-amber-600 text-white font-medium";
+    if (categoryName === 'frontend') getElem("tabFrontend").className = "tabBtn text-sm px-3 py-1.5 rounded bg-amber-600 text-white font-medium";
+    
+    loadSkillsGrid(categoryName);
+  }
 </script>
 </body>
 </html>
